@@ -1,0 +1,23 @@
+﻿
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test Drive @ViewBag.Title</title>
+
+        @Styles.Render("~/bundles/mainCss")
+        @RenderSection("css", required: false)
+        
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <h4>Welcome to this App</h4>
+            </div>
+        </div>
+        @RenderBody()
+        @Scripts.Render("~/bundles/mainJs")
+        @Scripts.Render("~/bundles/angular")
+        @RenderSection("scripts", required: false)
+
+    </body>
+</html>

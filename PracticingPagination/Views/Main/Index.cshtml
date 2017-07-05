@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Default view";
+}
+@section Scripts{
+    <script src="~/Scripts/angular/getBooks.js"></script>
+}
+
+<div class="row" ng-app="books" ng-controller="BooksController">
+    <div class="col-sm-8 col-sm-offset-2">
+        <div class="form-group input-group">
+            <label class="input-group-addon"><i class="fa fa-search"></i></label>
+            <input type="text" name="name" ng-model="search" class="form-control"/>
+        </div>
+        <table class="table table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Genre</th>
+                    <th>Author</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="book in filteredData | filter:search">
+                    <td>{{book.id}}</td>
+                    <td>{{book.title}}</td>
+                    <td>{{book.genre}}</td>
+                    <td>{{book.Author}}</td>
+                </tr>
+            </tbody>
+            
+        </table>
+        <div uib-pagination ng-model="currentPage"
+                    total-items="data.length"
+                    max-size="maxSize"
+                    boundary-links="true"></div>
+    </div>
+</div>
+
